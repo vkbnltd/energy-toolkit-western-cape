@@ -63,6 +63,7 @@ def _create_scenario_key(scenario, keys):
     scenario = dict((existing_keys[i]["code"], x) for i, x in enumerate(scenario))
     return [unique_key.format(**scenario).replace(":", "-"), scenario]
 
+# TODO Replace this with a general function. Specific to VGR still
 def _read_geo_name(geo):        
     with (paths.geo_root / 'config.json').open('r') as gc:
         geo_config = json.load(gc)

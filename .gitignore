@@ -177,6 +177,7 @@ index,geography=*,start=????-??,end=????-??.csv
 
 # Too large
 corine.tif
+sanlc.tif
 
 # Other
 .streamlit/secrets.toml

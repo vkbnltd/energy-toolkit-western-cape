@@ -1,15 +1,10 @@
 {
-    "weather-start": "REPLACE with weather start as yyyy-mm",
-    "weather-end": "REPLACE with weather end as yyyy-mm",
+    "weather-start": "2023-01",
+    "weather-end": "2023-12",
     "weather-geo": {
-        "REPLACE with weather geo name": {
-            "geo": "REPLACE with weather geo code",
-            "sections": {
-                "REPLACE with section name": "REPLACE with section code",
-                "...": "...",
-                "REPLACE with section group name": ["REPLACE with section code", "REPLACE with section code", ...],
-                "...": "..."
-            }
+        "Western Cape": {
+            "geo": "Western Cape",
+            "sections": {}
         }
     },
     "energy-types": [

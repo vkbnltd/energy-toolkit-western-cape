@@ -44,6 +44,14 @@ conda env create -f environment.yaml
 conda activate energy-toolkit
 ```
 
+## Additional packages
+
+Use pip to install the following packages in your activated env
+
+- pip install streamlit_folium
+- pip install streamlit_js_eval
+- pip install highspy
+
 ## Dev environment setup
 To avoid Jupyter output to be included in commits, run following command:
 ```bash

@@ -63,8 +63,8 @@ def check_weather_files(config):
 def check_renewables_files(config):
     geo = get_geo(config)
 
-    avail_matrix_files = list(paths.renewables.glob(f"availability-matrix,geography={geo['section']},start=*.nc"))    
-    cap_fac_files = list(paths.renewables.glob(f"capacity-factor,geography={geo['section']},start=*.nc"))    
+    avail_matrix_files = list(paths.renewables.glob(f"availability-matrix-*,geography={geo['section']},start=*.nc"))    
+    cap_fac_files = list(paths.renewables.glob(f"capacity-factor-*,geography={geo['section']},start=*.nc"))    
 
     if not (len(avail_matrix_files) > 0 and len(cap_fac_files) > 0):
         print(f"Renewables files do not exist for geography {geo['section']}. Please see /input/renewables/generate-renewables.ipynb")
@@ -179,7 +179,7 @@ def create_and_store_results(config):
 
     ## Copy config and assumptions to api
     shutil.copy(paths.generator_path / 'configs' / f"{config['config-name']}.json", paths.api_path / 'scenarios.json')
-    shutil.copy(paths.input_root / 'assumptions.csv', paths.api_path / 'assumptions.csv')
+    shutil.copy(paths.input_root / 'assumptions_core.csv', paths.api_path / 'assumptions.csv')
     
     ## Create and store core API files
     create_and_store_demand(data_path / 'demand.csv.gz', data_path / 'demand', resolution)

@@ -62,7 +62,7 @@ col1, col2 = st.columns([3, 1], gap="small")
 with sidebar:
     available_geo, main_geo = main_geo_selector(main_geo)
     #if initial_load:
-    geo = streamlit_map_selector(main_geo=main_geo, available_geo=available_geo, initial_geo=None)
+    #geo = streamlit_map_selector(main_geo=main_geo, available_geo=available_geo, initial_geo=None)
     #else:
     #    geo = streamlit_map_selector(main_geo=main_geo, available_geo=available_geo, initial_geo=None)
 

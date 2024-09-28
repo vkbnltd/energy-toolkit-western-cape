@@ -37,11 +37,11 @@ def create_and_store_parameters(config):
     data_path = paths.api_path / config['scenario']['data-path']
     data_path.mkdir(parents=True, exist_ok=True)
 
-    if (data_path / 'assumptions.csv').is_file():
-        print("assumptions.csv already exists, continue")
+    if (data_path / 'assumptions.csv.gz').is_file():
+        print("assumptions.csv.gz already exists, continue")
         return
 
-    assumptions = read_assumptions(paths.input_root / 'assumptions.csv', 
+    assumptions = read_assumptions(paths.input_root / 'assumptions_core.csv', 
                                    config["base-year"], config["scenario"]["target-year"], config["base-currency"], config["exchange-rates"], config["discount-rate"]
                                    )
     assumptions.to_csv(data_path / 'assumptions.csv.gz', compression='gzip')

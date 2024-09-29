@@ -1,7 +1,7 @@
-Biogasturbiner används producera el under toppar i elförbrukningen och under har maximalt ogynnsamma väderförhållanden. De kan användas flexibelt och snabbt för att balansera elnätet när förnybara energikällor som sol- och vindkraft inte producerar tillräckligt med energi.
+Biogas turbines are used to produce electricity during peaks in electricity consumption and during periods of highly unfavorable weather conditions. They can be used flexibly and quickly to balance the power grid when renewable energy sources such as solar and wind power are not producing enough energy.
 
-- Effekt anger maxeffekt (nominell effekt), dvs. hur snabbt el maximalt kan produceras.
-- Turbiner anger hur många turbiner av specificerad typ som krävs (se [Läs mer](/assumptions))
-- Produktionsandel anger hur mycket av systemets totala energi som produceras av i gasturbiner
+- **Power** indicates the maximum capacity (nominal capacity), i.e., how fast electricity can be produced at maximum.
+- **Turbines** indicates the number of turbines of the specified type required (see [Read more](/assumptions)).
+- **Production share** indicates how much of the system's total energy is produced by the gas turbines.
 
-Biogas-parametern sätter ett tag för hur mycket biogas systemet för importera. Se [Läs mer](/assumptions) för mer detaljer.
+The biogas parameter sets a limit for how much biogas the system can import. See [Read more](/assumptions) for more details.

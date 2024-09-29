@@ -2,7 +2,6 @@ import streamlit as st
 from pathlib import Path
 from library.config import set_data_root, clear_cache, get_default_variables
 #from MapSelector.map_selector.map_selector import streamlit_map_selector
-from map_selector.map_selector import streamlit_map_selector
 from widgets.geo import main_geo_selector
 from widgets.consumption import big_chart_widget
 from widgets.performance import performance_widget
@@ -14,7 +13,7 @@ from library.language import TEXTS, LANGUAGE
 
 # State management
 data_root = set_data_root()
-default_main_geo = "14" #VGR
+default_main_geo = "Western Cape"
 
 if "clear-cache" in st.query_params and st.query_params["clear-cache"] == "true":
     clear_cache()
@@ -23,13 +22,13 @@ initial_load = False
 if 'main_geo' not in st.session_state or 'geo' not in st.session_state or 'variables' not in st.session_state:
     initial_load = True
 
-    st.session_state['main_geo'] = default_main_geo if not "main_geo" in st.query_params or st.query_params.main_geo is None or st.query_params.main_geo == "" else st.query_params.main_geo
+    st.session_state['main_geo'] = default_main_geo #if not "main_geo" in st.query_params or st.query_params.main_geo is None or st.query_params.main_geo == "" else st.query_params.main_geo
     st.session_state['geo'] = "" if not "geo" in st.query_params or st.query_params.geo is None or st.query_params.geo == "" else st.query_params.geo
     st.session_state['variables'] = get_default_variables(data_root, st.query_params)
     st.session_state['compare_variables'] = None
 
-main_geo = st.session_state['main_geo']
-geo = st.session_state['geo']
+main_geo = default_main_geo #st.session_state['main_geo']
+geo = default_main_geo #st.session_state['geo']
 variables = st.session_state['variables']
 compare_variables = st.session_state['compare_variables']
 
@@ -60,7 +59,7 @@ col1, col2 = st.columns([3, 1], gap="small")
 
 # Show map selector and selection widget in sidebar
 with sidebar:
-    available_geo, main_geo = main_geo_selector(main_geo)
+    #available_geo, main_geo = main_geo_selector(main_geo)
     #if initial_load:
     #geo = streamlit_map_selector(main_geo=main_geo, available_geo=available_geo, initial_geo=None)
     #else:

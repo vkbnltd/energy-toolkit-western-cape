@@ -3,7 +3,7 @@ import geopandas as gpd
 import atlite
 
 import paths
-from cutout import generate_cutout
+from input.weather.cutout import generate_cutout
 
 def store_weather(geo, sections, weather_start, weather_end):
     cutout_path = paths.weather / f"cutout,geography={geo},start={weather_start},end={weather_end}.nc"
@@ -27,8 +27,8 @@ def load_weather(geo, section, weather_start, weather_end):
 
     selection_path = paths.weather / f"selection,geography={geo_key},start={weather_start},end={weather_end}.shp"
 
-    cutout = atlite.Cutout(cutout_path)
-    selection = gpd.read_file(selection_path)
+    cutout = atlite.Cutout(cutout_path)#, chunks={"time": 1, "x": 1024, "y": 1024})
+    selection = gpd.read_file(selection_path)#, chunks={"time": 1, "x": 1024, "y": 1024})
     index = pd.to_datetime(cutout.coords['time'])
 
     return cutout, selection, index

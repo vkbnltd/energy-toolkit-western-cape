@@ -1,7 +1,7 @@
-### Elproduktion 2030
+### Scenario: {target} growth by {year}
 
-Elbehovet i **{geography}** väntas växa med **{target}** till år **{year}**. Det här systemet har målet att klara **{sufficiency_target}** av det tillkommna behovet genom egenproduktion. Detta är ett **{ambition_level}** mål. Systemets faktiska självförsörjningsgrad blir **{sufficiency}** för hela året. {full_months}{full_months_text}{average_sufficiency_outside_full_text}{average_sufficiency_outside_full}. Systemet har kapacitet för **{super_power}** av överproduktion till låg eller nära noll kostnad.
+In this scenario the demand for electricity in **{geography}** grows by **{target}** to the year **{year}**. The displayed scenario aims to supply **{sufficiency_target}** of this demand with production within **{geography}**. The actual fulfillment for the year lands at **{sufficiency}** and has capacity for **{super_power}** of super power (electricity at very low marginal cost).
 
-Det redovisade elpriset påverkas till stor del av hur hur mycket de installerade kraftverken används. I detta scenario så producerar solkraft **{solar_cf} ({solar_cf_level})** och vindkraft (land) **{onwind_cf} ({onwind_cf_level})** av sina respektive maximum givet väderförhållanden.{gas_turbine_text1}{biogas_turbine_cf}{gas_turbine_text2}
+The cost of the produced electricity is greatly affected by the extent to which the installed production capacity is used. In this scenario {solar_cf_phrase}{onwind_cf_phrase}{offwind_cf_phrase}.
 
-Solkraftsinstallationer väntas uppta motsvarande **{solar_area_percentage}** av områdets bebyggda ytan eller **{solar_area_percentage_total}** av den totala arean och vindkraftsinstallationer motsvarande **{onwind_area_percentage}** resp. **{onwind_area_percentage_total}** Notera att både ytan för solkraft och den för vindkraft fortfarande kan användas för andra ändamål såsom bebyggelse (solpaneler på tak) samt jordbruk och skogsbruk kring vindkraftsverk.
+The land used for this power generation is {solar_land} for solar and {onwind_land} for onshore wind. This corresponds to {solar_area_percentage_total} and {onwind_area_percentage_total} of the total province area respectivelt. Note that solar and wind production and coexist with other activities on the same parcels of land.

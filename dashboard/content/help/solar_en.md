@@ -1,5 +1,5 @@
-Solkraft är ett billigt energislag som producerar el till när noll marginalkostnad. Kostnaden för el från solkraft utgörs således nästan helt av amorteringskostnader på investeringen.
+Solar power is an inexpensive energy source that produces electricity at nearly zero marginal cost. The cost of electricity from solar power is therefore almost entirely composed of the amortization costs of the investment.
 
-- Effekt anger maxeffekt (nominell effekt), dvs. hur snabbt el maximalt kan produceras.
-- Yta anger hur stor markyta som krävs för solpark (se [Läs mer](/assumptions))
-- Produktionsandel anger hur mycket av systemets totala energi som produceras av solkraft (inkl. el till batterier och vätgas)
+- **Power** indicates the maximum capacity (nominal capacity), i.e., how fast electricity can be produced at maximum.
+- **Area** indicates the amount of land required for a solar park (see [Read more](/assumptions)).
+- **Production share** indicates how much of the system's total energy is produced by solar power (including electricity for batteries and hydrogen).

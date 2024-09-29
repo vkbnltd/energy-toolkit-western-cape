@@ -65,7 +65,7 @@ def build_network(index, resolution, geography, load, assumptions, discount_rate
     network.add('Generator', 'market', carrier='import', bus='load-bus',
                 p_nom_extendable=True,
                 capital_cost=0,
-                marginal_cost=600,
+                marginal_cost=1000,
                 lifetime=100
                 )
 
@@ -99,7 +99,7 @@ def build_network(index, resolution, geography, load, assumptions, discount_rate
                     )
 
     network.add('Link', 'Renewables load link', bus0='renewables-bus', bus1='load-bus',
-                p_nom_extendable=use_offwind,
+                p_nom_extendable=True,
                 )
 
     # Add battery storage, charging, and discharging

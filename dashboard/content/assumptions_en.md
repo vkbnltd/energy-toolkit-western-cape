@@ -1,19 +1,18 @@
+## Assumptions
 
-## Antaganden
+All parts of the model are open-source, and the project's code can be found at [https://github.com/vkbnltd/energy-toolkit-western-cape](https://github.com/vkbnltd/energy-toolkit-western-cape). The assumptions used in the model are also open. See below for more details.
 
-Alla delar av modellen är open-source och projektets kod återfinns på [https://github.com/viktorbengtsson/pypsa-vgr](https://github.com/viktorbengtsson/pypsa-vgr). De antaganden som använts i modellen är också öppna. Se nedan för mer detaljer.
+### Units & Abbreviations
 
-### Enheter & förkortningar
+- **EUR**: Euro, the base currency of the system.
+- **MWh**: Megawatt hours, a unit of energy.
+- **MW**: Megawatt, a unit of power.
+- **Factor**: Dimensionless ratio.
+- **Years**: Time periods used in the analysis, usually related to the lifespan of components.
+- **MWe**: Megawatt-electric, specifically indicates electrical power.
+- **ha**: Hectares, a unit of area (100m x 100m).
+- **MEhth**: Megawatt-hour thermal, a unit of thermal energy.
 
-- **EUR**: Euro, systemets basvaluta.
-- **MWh**: Megawattimmar, en energienhet.
-- **MW**: Megawatt, en effektenhet.
-- **Factor**: Dimensionslös ratio.
-- **Years**: Tidsperioder som används i analysen, oftast relaterat till komponenters livslängd.
-- **MWe**: Megawatt-electric, anvger specifikt elektrisk effekt.
-- **ha**: Hektar, en areaenhet (100 mx 100 m).
-- **MEhth**: Megawattimme termisk, en enhet för termisk energi.
-
-**Terminologi:**
-- **FOM (Fixed Operation & Maintenance)**: Kostnader som inte varierar med driftsnivåer.
-- **VOM (Variable Operation & Maintenance)**: Kostnader som varierar med driftsnivåer.
+**Terminology:**
+- **FOM (Fixed Operation & Maintenance)**: Costs that do not vary with operational levels.
+- **VOM (Variable Operation & Maintenance)**: Costs that vary with operational levels.

@@ -1,9 +1,9 @@
-Detta stapeldiagram representerar systemets elpris (utan skatter och subventioner) och hur stor andel varje energislag bidrar till detta elpris. Detta är så kallad LCOE eller "Levelized Cost Of Electricity". Det beräknas genom att ta den årliga kapital- och driftskostnaden och dela med det årliga uttaget av el.
+This bar chart represents the system's electricity price (excluding taxes and subsidies) and the share that each energy source contributes to this electricity price. This is the so-called LCOE or "Levelized Cost of Electricity." It is calculated by taking the annual capital and operating costs and dividing them by the annual electricity output.
 
-För varje energislag visas:
+For each energy source, the following is shown:
 
-1. Elpris (LCOE) för energislaget i kr/kWh, dvs. årskostnaden för kraftslaget delat med det årliga uttaget av el.
-2. Det årliga uttaget i Wh
-3. Årskostnaden för energislaget (årlig kapitalkostnad samt driftskostnad)
+1. Electricity price (LCOE) for the energy source in ZAR/kWh, i.e., the annual cost of the energy source divided by the annual electricity output.
+2. The annual electricity output in Wh.
+3. The annual cost of the energy source (annual capital cost and operating cost).
 
-För sol- och vindkraft så räknas det årliga uttaget som den andel av elproduktionen som går direkt till förbrukning. Den produktion som går till lagring räknas istället in i uttaget från dessa lagringskällor.
+For solar and wind power, the annual electricity output is calculated as the share of electricity production that goes directly to consumption. The production that goes to storage is instead counted as the output from these storage sources.

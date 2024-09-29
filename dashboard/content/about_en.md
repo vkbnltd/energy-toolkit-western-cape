@@ -1,57 +1,57 @@
-Energy Toolkit initierades 2024 i ett pilotprojekt av [Region Västra Götaland](https://www.vgregion.se/) och [AI Sweden](https://ai.se). Målet för projektet är att sprida och fördjupa förståelsen av möjligheterna för lokal produktion av el och av självförsörjning av energi.
+**Energy Toolkit** was initiated in 2024 as a pilot project by [Region Västra Götaland](https://www.vgregion.se/) and [AI Sweden](https://ai.se). The goal of the project is to spread and deepen the understanding of the possibilities for local electricity production and energy self-sufficiency.
 
-## Vem kan använda Energy Toolkit
+## Who Can Use Energy Toolkit
 
-Energy Toolkit kan användas av regionala och lokala intressenter med intresse för eller ansvar för energi, samt av industrin och allmänheten. Det visuella gränssnittet är utformat för att vara lättillgängligt för alla som har en grundläggande förståelse för elproduktion.
+The Energy Toolkit can be used by regional and local stakeholders with an interest in or responsibilities for energy, as well as by industry and the general public. The visual interface is designed to be accessible to anyone with a basic understanding of electricity production.
 
-För mer tekniskt lagda användare kan den underliggande kraftmodellen och scenariogeneratorn modifieras. Detta gör det möjligt att anpassa modellen och genomföra scenarier som återspeglar de specifika förhållandena på olika platser, vilket möjliggör djupgående analyser och skräddarsydda insikter.
+For more technically inclined users, the underlying power model and scenario generator can be modified. This makes it possible to customize the model and run scenarios that reflect specific conditions in different locations, enabling in-depth analyses and tailored insights.
 
-**Användargrupper:**
-1. Beslutsfattare (inkl. allmänheten) som ev. inte har speciella detaljkunskaper inom energiområdet
-2. Energispecialist som har djupare kunskap i energifrågorna men ev. inte detaljkunskaper inom optimering och analys av kraftsystem
-3. Energimodellerare som är experter på att modellera kraftsystem
+### User Groups:
+1. **Decision Makers** (including the public), who may not have detailed knowledge of the energy sector.
+2. **Energy Specialists**, who have deeper expertise in energy issues but may not have detailed knowledge in optimization and power system analysis.
+3. **Energy Modelers**, who are experts in modeling power systems.
 
-## Vad är Energy Toolkit?
+## What is Energy Toolkit?
 
-Energy Toolkit består av fyra komponenter som kan användas delvis oberoende av varandra.
+The Energy Toolkit consists of four components that can be used independently of each other.
 
-### Komponent 1: Ett ramverk för kraftsystemsoptimering och analys
+### Component 1: A Framework for Power System Optimization and Analysis
 
-Vi har byggt en modell för lokal produktion och lagring av el från en rad energislag. Denna modell ligger till grund för resten av systemet. Vi använder [PyPSA](https://pypsa.org/) i den här komponenten, ett kraftfullt verktyg för att simulera och optimera kraftsystem.
+We have built a model for local electricity production and storage from various energy sources. This model serves as the foundation for the rest of the system. We use [PyPSA](https://pypsa.org/) in this component, a powerful tool for simulating and optimizing power systems.
 
-**_Hur kan den här komponenten användas_**
-- Beslutsfattare använder den här komponenten enkom genom de andra komponenterna
-- Energispecialister använder den här komponenten enkom genom de andra komponenterna
-- Energimodellerare kan ändra energimodellen, lägga till eller dra ifrån energislag eller former av lagring, samt lägga ytterliga villkor på systemet. Dessa ändringar kan sedan köras individuellt eller genom datageneratorn.
+**_How this component can be used_**
+- **Decision Makers** use this component only through other components.
+- **Energy Specialists** use this component only through other components.
+- **Energy Modelers** can modify the energy model, add or remove energy sources or storage forms, and set additional constraints on the system. These changes can then be run individually or through the data generator.
 
-### Komponent 2: En datagenerator
+### Component 2: A Data Generator
 
-Datageneratorn används för att köra ett stort antal scenarior genom vår modell. Vi kan förgenerera den data som analyseras i senare steg på ett effektivt sätt. Produktionsmodellen kan också delvis styras genom att ändra parametrarna för scenarior.
+The data generator is used to run a large number of scenarios through our model. We can pre-generate the data that is analyzed in later stages in an efficient manner. The production model can also be partly controlled by changing the scenario parameters.
 
-**_Hur kan den här komponenten användas_**
-- Beslutsfattare använder den här komponenten enkom genom de andra komponenterna.
-- Energispecialister kan ändra parametrarna i scenarior för att anpassa dem bättre till lokala villkor eller titta på specifika och särskilt relevanta scenarior.
-- Energimodellerare kan köra nya modeller genom datageneratorn samt redigera indata till modellerna i likhet med energispecialisterna.
+**_How this component can be used_**
+- **Decision Makers** use this component only through other components.
+- **Energy Specialists** can change scenario parameters to better adapt them to local conditions or look at specific, particularly relevant scenarios.
+- **Energy Modelers** can run new models through the data generator and edit input data for models similarly to energy specialists.
 
- ### Komponent 3: En API
+### Component 3: An API
 
-Utdata från generatorn lagras i en API. Det gör datan tillgänglig för analys i valfri programvara och med valfria metoder.
+Output from the generator is stored in an API, making the data accessible for analysis in any software and with any methods.
 
-**_Hur kan den här komponenten användas_**
-- Beslutsfattare använder den här komponenten enkom genom de andra komponenterna.
-- Energispecialister kan ändra parametrarna i scenarior för att anpassa dem bättre till lokala villkor eller titta på specifika och särskilt relevanta scenarior.
-- Energimodellerare kan köra nya modeller genom datageneratorn samt redigera indata till modellerna i likhet med energispecialisterna.
+**_How this component can be used_**
+- **Decision Makers** use this component only through other components.
+- **Energy Specialists** can change scenario parameters to better adapt them to local conditions or look at specific, particularly relevant scenarios.
+- **Energy Modelers** can run new models through the data generator and edit input data for models similarly to energy specialists.
 
- ### Komponent 4: En app 
+### Component 4: An App
 
-För att visualisera resultaten har vi byggt en egen Streamlit-baserad app. Genom denna app ger vi alla användargrupper ett intuitivt gränssnitt för att utforska och experimentera med modellen.
+To visualize the results, we have built our own Streamlit-based app. Through this app, we provide all user groups with an intuitive interface to explore and experiment with the model.
 
-**_Hur kan den här komponenten användas_**
-- Beslutsfattare kan använda appen för att fördjupa sin förståelse, som underlag för möten med experter och intressenter, eller i dialog med allmänheten.
-- Energispecialister kan använda appen för att lättare kommunicera i sin verksamhet.
-- Energimodellerare kan använda appen för att validera och testa nya modeller.
+**_How this component can be used_**
+- **Decision Makers** can use the app to deepen their understanding, as a basis for meetings with experts and stakeholders, or in dialogue with the public.
+- **Energy Specialists** can use the app to communicate more effectively in their operations.
+- **Energy Modelers** can use the app to validate and test new models.
 
-## Användning
+## Usage
 
 The Energy Toolkit can be used by regional and local stakeholders with an interest in or responsibilities for energy, as well as by industry and the general public. The visual interface is designed to be broadly accessible, catering to anyone with a basic understanding of electricity generation.
 

@@ -16,7 +16,7 @@ ALL_TEXTS = {
     "imported_energy": { "en": "Imported energy", "sv": "Planerad import"},
     "shortfall_energy": { "en": "Shortfall energy", "sv": "Oplanerad import"},
     "total_cost": { "en": "Total cost", "sv": "Totalkostnad"},
-    "currency": { "en": "USD", "sv": "SEK"},
+    "currency": { "en": "ZAR", "sv": "SEK"},
     "week": { "en": "Week", "sv": "Vecka"},
     "production": { "en": "Production", "sv": "Produktion" },
     "consumption": { "en": "Consumption", "sv": "Konsumtion" },
@@ -66,6 +66,7 @@ ALL_TEXTS = {
 
     "turbines": { "sv": "turbiner" },
 
+    "Target year": { "sv": "År" },
     "Production target": { "sv": "Elproduktionsmål" },
     "Self-sufficiency": {"sv": "Egenförsörjningsmål (minimum)"},
     "Energy scenario": {"sv": "Energiscenario (justering av årsenergi)"},
@@ -102,7 +103,7 @@ ALL_TEXTS = {
     "Capacity": { "sv": "Kapacitet" },
     "Percentage": { "sv": "Andel" },
     "Energy": { "sv": "Energi" },
-    "electricity price unit": { "en": "cents/kWh", "sv": "öre/kWh"}
+    "electricity price unit": { "en": "c/kWh", "sv": "öre/kWh"}
 }
 
 ALL_MONTHS = {

@@ -8,4 +8,4 @@ Finally, if you want to contribute to the ongoing development, we invite you to 
 
 ### Contact
 
-Please reach out to viktor@vkbn.ltd or filip.kjellgren@ai.se to learn more.
+Please reach out to viktor@vkbn.ltd or martin.svensson@ai.se to learn more.

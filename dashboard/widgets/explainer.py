@@ -4,6 +4,7 @@ import json
 from library.config import set_data_root
 from widgets.utilities import scenario, round_and_prefix
 from library.language import TEXTS, LANGUAGE, MONTHS
+from widgets.comparison import comparison_widget
 from pathlib import Path
 
 def ambition_level(sufficiency_target):
@@ -50,8 +51,7 @@ def explainer_widget(geo, target_year, self_sufficiency, energy_scenario, h2, of
     sufficiency_path = data_path / 'performance' / f"sufficiency_t_{resolution}.csv.gz"
     solar_path = data_path / 'generators' / 'solar' / 'details.csv.gz'
     onwind_path = data_path / 'generators' / 'onwind' / 'details.csv.gz'
-    biogas_turbine_path = data_path / 'generators' / 'biogas-turbine' / 'details.csv.gz'
-    land_path = data_path / 'landuse.csv.gz'
+    offwind_path = data_path / 'generators' / 'offwind' / 'details.csv.gz'
     config_path = data_path / 'config.json'
 
     with config_path.open('r') as cf:
@@ -68,24 +68,34 @@ def explainer_widget(geo, target_year, self_sufficiency, energy_scenario, h2, of
 
     sufficient_months, average_outside_full = sufficiency_metrics(sufficiency)
 
+    solar = False
+    solar_cf = 0
+    onwind = False
+    onwind_cf = 0
+    offwind = False
+    offwind_cf = 0
+
 
     if solar_path.is_file():
         solar_details = pd.read_csv(solar_path, compression='gzip', index_col=0)
+        solar = True
+        solar_cf = 1 - solar_details.loc['curtailment', 'solar']
     if onwind_path.is_file():
         onwind_details = pd.read_csv(onwind_path, compression='gzip', index_col=0)
-    if biogas_turbine_path.is_file():
-        biogas_turbine_details = pd.read_csv(biogas_turbine_path, compression='gzip', index_col=0)
-    if land_path.is_file():
-        land_use = pd.read_csv(land_path, compression='gzip', index_col=0)
-
+        onwind = True
+        onwind_cf = 1 - onwind_details.loc['curtailment', 'onwind']
+    if offwind_path.is_file():
+        offwind_details = pd.read_csv(offwind_path, compression='gzip', index_col=0)
+        offwind=True
+        offwind_cf = 1 - offwind_details.loc['curtailment', 'offwind']
+        
     area_per_turbine = 20
 
-    total_land = float(land_use.loc['total landareal', geo])
-    built_land = float(land_use.loc['bebyggd och anlagd mark ', geo])
-    solar_land_percentage = float(solar_details.loc['mod_units','solar']) / built_land
-    onwind_land_percentage = float(onwind_details.loc['mod_units','onwind']) * area_per_turbine / built_land
-    solar_land_percentage_total = float(solar_details.loc['mod_units','solar']) / total_land
-    onwind_land_percentage_total = float(onwind_details.loc['mod_units','onwind']) * area_per_turbine / total_land
+    total_land = 12_946_200
+    solar_land = float(solar_details.loc['mod_units','solar'])
+    onwind_land = float(onwind_details.loc['mod_units','onwind']) * area_per_turbine
+    solar_land_percentage_total = solar_land / total_land
+    onwind_land_percentage_total = onwind_land / total_land
 
     text_path = Path(__file__).parent / f"explainer_{LANGUAGE}.md"
     body = (text_path).read_text(encoding='utf-8').format(
@@ -100,20 +110,22 @@ def explainer_widget(geo, target_year, self_sufficiency, energy_scenario, h2, of
         average_sufficiency_outside_full_text = TEXTS['average_sufficiency_outside_full_text'] if len(sufficient_months) > 0 else '',
         average_sufficiency_outside_full = average_outside_full,
         super_power = round_and_prefix(performance.loc['Curtailed energy', 'Value'], 'M', 'Wh', 0),
-        solar_cf = f"{1 - solar_details.loc['curtailment', 'solar']:.1%}",
-        solar_cf_level = cf_level(1- solar_details.loc['curtailment', 'solar']),
-        onwind_cf = f"{1 - onwind_details.loc['curtailment', 'onwind']:.1%}",
-        onwind_cf_level = cf_level(1- onwind_details.loc['curtailment', 'onwind']),
         # TODO: Fix this
-        gas_turbine_text1 = '', #if biogas_limit == '0' else TEXTS['gas_turbine_text1'],# if not math.isnan(biogas_turbine_details.loc['curtailment', 'biogas-turbine']) else '',
-        gas_turbine_text2 = '', #if biogas_limit == '0' else TEXTS['gas_turbine_text2'],# if not math.isnan(biogas_turbine_details.loc['curtailment', 'biogas-turbine']) else '',
-        biogas_turbine_cf = '', #if biogas_limit == '0' else f"{1 - biogas_turbine_details.loc['curtailment', 'biogas-turbine']:.1%}",# if not math.isnan(biogas_turbine_details.loc['curtailment', 'biogas-turbine']) else '',
-        solar_area_percentage = f"{solar_land_percentage:.2%}",
-        solar_area_percentage_total = f"{solar_land_percentage_total:.2%}",
-        built_area = f"{built_land:,.0f} ha",
         total_area = f"{total_land:,.0f} ha",
-        onwind_area_percentage = f"{onwind_land_percentage:.2%}",
+        solar_land = f"{solar_land:,.0f} ha.",
+        onwind_land = f"{onwind_land:,.0f} ha.",
+        solar_area_percentage_total = f"{solar_land_percentage_total:.2%}",
         onwind_area_percentage_total = f"{onwind_land_percentage_total:.2%}",
+        solar_cf_phrase = '' if not solar else f"solar produces {solar_cf:.1%} of its weather maximum",
+        onwind_cf_phrase = '' if not onwind else f", onshore wind produces {onwind_cf:.1%}",
+        offwind_cf_phrase = '' if not offwind else f" and offshore wind produces {offwind_cf:.1%}",
     )
+
+    disclaimer = (Path(__file__).parent / f"disclaimer_{LANGUAGE}.md").read_text(encoding='utf-8')
+
     with st.container():
         st.markdown(body)
+
+        comparison_widget(geo, target_year, self_sufficiency, energy_scenario, h2, offwind, biogas_limit, modal)
+
+        st.markdown(disclaimer)

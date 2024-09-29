@@ -82,7 +82,7 @@ def _create_scenario(config, scenario, keys, tidy):
     config["scenario"]["data-path"] = unique_key
 
     # TODO: Clean this up
-    config['scenario']['geography-name'] = _read_geo_name(config["scenario"]["geography"].split(":",1)[-1])
+    config['scenario']['geography-name'] = config['scenario']['geography']
 
     if os.path.isfile(data_path / 'config.json'):
         print(f"{data_path}/config.json already exists")

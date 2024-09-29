@@ -1,5 +1,5 @@
-**Energy Toolkit v0.2**
+**Energy Toolkit v0.3**
 
-Detta är en beta-version av Energy Toolkit, applicerad på VGR och med begränsad data.
+This is a beta version of Energy Toolkit, applied to Western Cape province, South Africa, with limited input data.
 
-Behovsprofilen är baserad på elområde 3 från år 2023. I grundscenariot uppskattas det totala årliga behovet för VGR öka med 15 TWh till 2030. Elbehovet i kommuner och kommunförbund beräknas genom att räkna ut procentuell energikonsumption (inte enbart el) i varje kommun baserat på siffror från SCB 2022. Marknadspriset för el har även det tagits från elområde 3 år 2023. Väderdata tas från Copernicus i 3h-intervall från 2023.
+The weather data is taken from the Copernicus Climate Data Store. It is ERA5 data at a resolution of 3h for the whole year 2023.

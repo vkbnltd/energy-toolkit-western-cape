@@ -179,7 +179,7 @@ def create_and_store_results(config):
 
     ## Copy config and assumptions to api
     shutil.copy(paths.generator_path / 'configs' / f"{config['config-name']}.json", paths.api_path / 'scenarios.json')
-    shutil.copy(paths.input_root / 'assumptions.csv', paths.api_path / 'assumptions.csv')
+    shutil.copy(paths.input_root / 'assumptions_core.csv', paths.api_path / 'assumptions.csv')
     
     ## Create and store core API files
     create_and_store_demand(data_path / 'demand.csv.gz', data_path / 'demand', resolution)

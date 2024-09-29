@@ -13,13 +13,11 @@ def generate_cutout(weather_geo, sections, weather_start, weather_end):
     #KEY = 'shape1'
     #Source: https://cartographyvectors.com/map/1334-western-cape-south-africa
 
-
     country = gpd.read_file(paths.geo_root / 'western-cape-south-africa_1334.geojson')
     KEY = 'name'
 
     area = country.loc[country[KEY].isin([weather_geo])]
 
-        
     minx, miny, maxx, maxy = area.total_bounds
 
     cutout_path = paths.weather /  f"cutout,geography={weather_geo},start={weather_start},end={weather_end}.nc"

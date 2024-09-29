@@ -11,6 +11,24 @@ def controls_widget(variables):
 
     SCENARIOS = read_dashboard_available_variables(data_root)
 
+    # TARGET YEAR
+    target_year_title = f'{TEXTS["Target year"]}'
+    if len(SCENARIOS["target-year"]) > 1:
+        if 'is_loaded_target_year' not in st.session_state:
+            target_year = st.select_slider(target_year_title, options=SCENARIOS["target-year"], value=variables["target_year"], on_change=lambda: _is_loaded("target_year"))
+        else:
+            target_year = st.select_slider(target_year_title, options=SCENARIOS["target-year"])
+    else:
+        if SCENARIOS["target-year"][0] != variables["target_year"]:
+            st.write("")
+            st.write("It seems like you have a /api/config.json file that does not match the data in /api")
+            return
+        
+        if 'is_loaded_target_year' not in st.session_state:
+            target_year = st.select_slider(target_year_title, options=[SCENARIOS["target-year"][0], SCENARIOS["target-year"][0]], value=SCENARIOS["target-year"][0], on_change=lambda: _is_loaded("target_year"))
+        else:
+            target_year = st.select_slider(target_year_title, options=[SCENARIOS["target-year"][0], SCENARIOS["target-year"][0]])
+
     # SELF SUFFICIENCY
     self_sufficiency_title = f'{TEXTS["Self-sufficiency"]}'
     if len(SCENARIOS["self-sufficiency"]) > 1:
@@ -37,7 +55,7 @@ def controls_widget(variables):
         else:
             energy_scenario = st.select_slider(energy_scenario_title, options=SCENARIOS["energy-scenario"], format_func=lambda x: f"{x:.0%}")
     else:
-        if SCENARIOS["energy-scenario"][0] != variables["energy-scenario"]:
+        if SCENARIOS["energy-scenario"][0] != variables["energy_scenario"]:
             st.write("")
             st.write("It seems like you have a /api/config.json file that does not match the data in /api")
             return
@@ -69,7 +87,7 @@ def controls_widget(variables):
     else:
         biogas = SCENARIOS["biogas-limit"][0]
 
-    variables["target_year"] = 2030 # Controls for this?
+    variables["target_year"] = target_year
     variables["self_sufficiency"] = self_sufficiency
     variables["energy_scenario"] = energy_scenario
     variables["h2"] = h2

@@ -1,7 +1,7 @@
-Systemets prestanda representeras i detta stapeldiagram av tre mått:
+The system's performance is represented in this bar chart by three metrics:
 
-1. Uppfyllt behov anger hur stor andel (i procent och Wh) av det totala årliga elbehovet i geografin som uppfylls av systemet
-2. Ej uppfyllt behov anger hur stor andel som ej uppfylls och behöver importeras
-3. Överproduktion anger vilken kapacitet som finns att producera extra el i systemet.
+1. **Fulfilled demand** indicates the share (in percentage and Wh) of the total annual electricity demand in the region that is met by the system.
+2. **Unfulfilled demand** indicates the share that is not met and needs to be imported.
+3. **Overproduction** indicates the capacity available to produce additional electricity within the system.
 
-Överproduktion (kallas även superkraft) är el som skulle kunna produceras men inte görs eftersom det inte finns något behov vid tidpunkten. I framtidens elsystem är det sannolikt att vi kommer ha ett smartare (och därför mer flexibelt) användande av el. Exempel på detta är industrier som delvis genererar sin egen el och ökar produktionen när elproduktionen är hög, eller elbilar som laddar när lokal elproduktion är hög.
+Overproduction (also called super power) is electricity that could be produced but is not because there is no demand at that time. In the future, it is likely that we will have a smarter (and therefore more flexible) use of electricity. Examples include industries that partially generate their own electricity and increase production when electricity production is high, or electric vehicles that charge when local electricity production is high.

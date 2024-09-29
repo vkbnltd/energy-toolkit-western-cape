@@ -1,7 +1,7 @@
-Batterilagring möjliggör lagring av överskottsenergi som produceras av sol- och vindkraft när förhållandena är gynnsamma, och sedan släpper ut den energin under tider när produktionen är låg, exempelvis på natten eller under vindstilla dagar. Detta skapar stabilitet och säkerställer en kontinuerlig elförsörjning trots de intermittenta egenskaperna hos förnybara energikällor.
+Battery storage enables the storage of surplus energy produced by solar and wind power when conditions are favorable, and then releases that energy during times when production is low, such as at night or on windless days. This creates stability and ensures a continuous electricity supply despite the intermittent nature of renewable energy sources.
 
-- Kapacitet anger hur mycket el som kan lagras.
-- Effekt anger hur snabbt denna el kan släppas ut till systemet.
-- Andel uttag anger hur stor del av den konsumerade elen som kommer från systemets batterilagring.
+- **Capacity** indicates how much electricity can be stored.
+- **Power** indicates how quickly this electricity can be released back into the system.
+- **Share of consumption** indicates the proportion of consumed electricity that comes from the system's battery storage.
 
-Kapacitet och effekt har optimerats oberoende i den här modellen. Se [Läs mer](/assumptions) för mer detaljer kring batterilagring.
+Capacity and power have been independently optimized in this model. See [Read more](/assumptions) for more details about battery storage.

@@ -11,4 +11,5 @@ plotly
 xarray
 seaborn
 extra_streamlit_components
-./dashboard/MapSelector
+pathlib
+itertools

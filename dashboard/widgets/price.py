@@ -5,7 +5,6 @@ import plotly.express as px
 from library.config import set_data_root
 from widgets.utilities import scenario, full_palette, round_and_prefix
 from library.language import TEXTS
-import math
 
 
 def _bar_chart(data):

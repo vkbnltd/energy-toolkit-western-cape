@@ -43,7 +43,7 @@ def _safely_load_data(path, generator):
     else:
         details = pd.read_csv(path, compression='gzip', index_col=0)
         return [
-            { "key": TEXTS["Effect"], "value": round_and_prefix(details.loc['p_nom_opt'][generator],'M','W', 0) },
+            { "key": TEXTS["Effect"], "value": round_and_prefix(details.loc['p_nom_opt'][generator],'M','W', 1) },
             { "key": TEXTS[f"units_required_{generator}"], "value": round_and_format(details.loc['mod_units'][generator]) },
             { "key": TEXTS["fraction_energy"], "value": f"{round_and_format(details.loc['fraction_energy'][generator] * 100)}{'%' if details.loc['fraction_energy'][generator] != 0 else ''}" }
         ]
@@ -53,6 +53,7 @@ def energy_widget(geo, target_year, self_sufficiency, energy_scenario, h2, offwi
     data_root = set_data_root()
     data_path = data_root / scenario(geo, target_year, self_sufficiency, energy_scenario, h2, offwind, biogas_limit) / 'generators' / generator / 'details.csv.gz'
     metrics = _safely_load_data(data_path, generator)
+    print(metrics)
 
     with st.container(border=True):
         col1, col2 = st.columns([3,1])
@@ -75,8 +76,8 @@ def store_widget(geo, target_year, self_sufficiency, energy_scenario, h2, offwin
     else:
         details = pd.read_csv(data_path, compression='gzip', index_col=0)
         metrics = [
-            { "key": TEXTS["Capacity"], "value": round_and_prefix(float(details.loc['e_nom_opt'][store]),'M','Wh', 0) },
-            { "key": TEXTS["Effect"], "value": round_and_prefix(float(details.loc['p_nom_opt_discharge'][store]),'M','W', 0) if round(float(details.loc['e_nom_opt'][store]),9) != 0 else '-' },
+            { "key": TEXTS["Capacity"], "value": round_and_prefix(float(details.loc['e_nom_opt'][store]),'M','Wh', 1) },
+            { "key": TEXTS["Effect"], "value": round_and_prefix(float(details.loc['p_nom_opt_discharge'][store]),'M','W', 1) if round(float(details.loc['e_nom_opt'][store]),9) != 0 else '-' },
             { "key": TEXTS["fraction_stored_energy"], "value": round_and_percentage(details.loc['fraction_energy_out'][store])}
         ]
 
@@ -93,8 +94,8 @@ def backstop_widget(geo, target_year, self_sufficiency, energy_scenario, h2, off
     market = pd.read_csv(data_root / scenario(geo, target_year, self_sufficiency, energy_scenario, h2, offwind, biogas_limit) / 'generators' / "market" / 'details.csv.gz', compression='gzip', index_col=0)
     backstop = pd.read_csv(data_root / scenario(geo, target_year, self_sufficiency, energy_scenario, h2, offwind, biogas_limit) / 'generators' / "backstop" / 'details.csv.gz', compression='gzip', index_col=0)
     metrics = [
-        { "key": TEXTS["imported_energy"], "value": round_and_prefix(market.loc['total_energy']['market'],'M','Wh', 0) },
-        { "key": TEXTS["shortfall_energy"], "value": round_and_prefix(backstop.loc['total_energy']["backstop"],'M','Wh', 0) },
+        { "key": TEXTS["imported_energy"], "value": round_and_prefix(market.loc['total_energy']['market'],'M','Wh', 1) },
+        { "key": TEXTS["shortfall_energy"], "value": round_and_prefix(backstop.loc['total_energy']["backstop"],'M','Wh', 1) },
     ]
 
     with st.container(border=True):
